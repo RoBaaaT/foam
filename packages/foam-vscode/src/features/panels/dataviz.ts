@@ -71,7 +71,7 @@ function generateGraphData(foam: Foam) {
 
   foam.workspace.list().forEach(n => {
     const type = n.type === 'note' ? n.properties.type ?? 'note' : n.type;
-    const title = n.type === 'note' ? n.title : n.uri.getBasename();
+    const title = n.type === 'note' ? n.uri.getName() : n.uri.getBasename();
     graph.nodeInfo[n.uri.path] = {
       id: n.uri.path,
       type: type,
